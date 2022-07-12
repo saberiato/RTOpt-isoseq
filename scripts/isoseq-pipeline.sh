@@ -28,11 +28,11 @@ cd $CWD
 
 ref_mmi="$REF/genome/gencode.v${GENCODE_VERSION}.primary_assembly.genome.mmi"
 
-for s in N
+for s in L M N
 do
-    for v in 1 # 2
+    for v in 1 2
     do
-        for r in 2 # 1
+        for r in 1 2
         do
 
             sn=${s}.v${v}.r${r}
@@ -44,15 +44,15 @@ do
 
             ref_primers=${sn}.primers.fasta
 
-            # ## Removing primers sequences ---------------------------------
-            # lima \
-            #     ${sn}.ccs.bam \
-            #     ${ref_primers} \
-            #     ${sn}.fl.bam \
-            #     --isoseq \
-            #     --peek-guess \
-            #     --log-level INFO \
-            #     --num-threads $NUM_THREADS
+            ## Removing primers sequences ---------------------------------
+            lima \
+                ${sn}.ccs.bam \
+                ${ref_primers} \
+                ${sn}.fl.bam \
+                --isoseq \
+                --peek-guess \
+                --log-level INFO \
+                --num-threads $NUM_THREADS
 
             ## Renaming FL BAM files
             mv ${sn}.fl.*_5p--*_3p.bam ${sn}.fl.bam
