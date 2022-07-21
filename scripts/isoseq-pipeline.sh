@@ -66,7 +66,6 @@ do
                 ${sn}.flnc.bam \
                 --log-level DEBUG \
                 --num-threads $NUM_THREADS
-                ## --require-polya
 
             ### Clustering full-length transcripts --------------------------
             isoseq3 cluster \
@@ -92,6 +91,7 @@ do
                 ${sn}.clustered.hq.aligned.bam \
                 ${sn}.transcriptome.gff \
                 --num-threads $NUM_THREADS
+
         done
     done   
 done
